@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Games | Premium Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" onclick="showPage('home')">NEXUS GAMES</div>
+        <div class="nav-links">
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('store')">Store</button>
+            <button onclick="showPage('library')">Library</button>
+        </div>
+        <div class="nav-actions">
+            <button onclick="showPage('checkout')" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>LEVEL UP YOUR <span class="highlight">LIBRARY</span></h1>
+                <p>Discover over 100+ triple-A titles and indie gems with instant delivery.</p>
+                <button onclick="showPage('store')" class="btn-primary">Browse Store</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="store" class="page-section container mx-auto px-6 py-12">
+        <div class="section-header">
+            <h2>Game Store</h2>
+            <span class="badge">100 Games Available</span>
+        </div>
+        <div id="game-grid" class="game-grid"></div>
+    </section>
+
+    <section id="library" class="page-section container mx-auto px-6 py-12">
+        <h2>My Library</h2>
+        <div id="library-grid" class="game-grid">
+            <p id="empty-library">Your library is currently empty.</p>
+        </div>
+    </section>
+
+    <section id="checkout" class="page-section container mx-auto px-6 py-12">
+        <div class="checkout-container">
+            <div class="cart-section">
+                <h2>Your Cart</h2>
+                <div id="cart-items"></div>
+            </div>
+            <div class="summary-card">
+                <h3>Order Summary</h3>
+                <div class="summary-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+                <div class="summary-row total"><span>Total</span><span id="total-price">$0.00</span></div>
+                
+                <form id="payment-form" onsubmit="handlePayment(event)">
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Card Number" required>
+                    <button type="submit" class="btn-checkout">Complete Purchase</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
